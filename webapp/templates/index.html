@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block  content  %}
+
+        <center>
+            <h1>How much water should you add?</h1>
+            <form class="calculator" action="/calculate_dilution" method="post" enctype="multipart/form-data">
+                <label for="vol">Volume of the distillate [mL]</label>
+                <input type="text" name="volume" id = "vol">
+                <label for="perc">Current %</label>
+                <input type="text" name="solution" id = "perc" />
+                <label for="perc">Desired final %</label>
+                <input type="text" name="final" id = "final" />
+                <input class="calculator" type="submit" >
+            </form>
+        </center>
+
+{% endblock %}

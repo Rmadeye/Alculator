@@ -1,0 +1,75 @@
+<html>
+           <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+           <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    margin: 1em 0;
+    padding: 0;
+}
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+ul.top {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li b {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #6a5acd;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+        body {
+            background-image: url("static/background1.png");
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+</style>
+    <head>
+        <title>Transform your PDB</title>
+    </head>
+    <body>
+<ul class = "top">
+  <li><a href="https://github.com/Rmadeye">GitHub</a></li>
+  <li style="float:right"><a class="active" href="mailto: rafmadaj@gmail.com">Contact</a></li>
+</ul>
+<section>
+    <div class="footer" style = "clear: both">
+  <p>Made by Rmadeye</p>
+</div>
+</section>
+    {%block content%} {% endblock %}
+    </body>
+</html>
