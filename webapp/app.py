@@ -17,7 +17,7 @@ def calculate_dilution():
     volume = request.form['volume']
     solution = request.form['solution']
     final = request.form['final']
-    # densities = app.open_resource(rootdir.main_cwd() + '\\src\\density.csv', 'r')
+    densities = app.open_resource(rootdir.main_cwd() + '\\webapp\\src\\density.csv', 'r')
 
     try:
 

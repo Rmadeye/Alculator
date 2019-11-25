@@ -1,5 +1,5 @@
 import pandas as pd
-import os
+import os, csv
 
 class Calculations:
 
@@ -8,19 +8,23 @@ class Calculations:
         pass
 
     def calc_dil(self, volume: float, final: float, solution: float):
+        data = []
+        with open('src\\density.csv', 'r', encoding='utf-8') as file:
+            readCSV = csv.reader(file, delimiter=';')
 
-        file_path = os.getcwd() + '\\src\\density.csv'
-        file = open(file_path, 'r')
+            for row in readCSV:
+                data.append(row)
+        df = pd.DataFrame(data[1:], columns=data[0][0:2])
+        data = df.set_index('percent')['density'].to_dict()
+        initial_density = data[str(int(solution))]
+        final_density = data[str(int(final))]
 
-        data = pd.read_csv(file, sep = ';', index_col=0, squeeze=True).to_dict()
-        print(data)
-        df = pd.read_csv(str(os.getcwd()+'\\density.csv'), sep = ';')
-        init_density = df.loc[df['Percentage']==str(solution)]
-        init_density_output = init_density['density']
-        final_density = df.loc[df['Percentage']==str(final)]
-        answer = ((volume*solution*init_density_output)-(volume*final*final_density))/(final*final_density)
-        pure = volume*(solution/100)*init_density_output
-        print(answer,pure)
-        return str(answer,pure)
+        print(initial_density)
 
-        
+
+
+
+
+        answer = ((float(volume)*float(solution)*float(initial_density))-(volume*float(final)*float(final_density)))/(final*float(final_density))
+        pure = volume*(float(solution)/100)*float(initial_density)
+        return 'Add:',str(round(answer,0)),'mL','Pure alcohol:', str(round(pure,2)), 'g'
