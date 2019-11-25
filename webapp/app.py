@@ -1,6 +1,7 @@
-from flask import Flask, request, render_template, send_file
-from src import calculate
-import os, shutil
+from flask import Flask, request, render_template
+
+from webapp.src import calculate
+import os
 
 app = Flask(__name__)
 
@@ -12,9 +13,11 @@ def index():
 @app.route('/calculate_dilution', methods=["POST"])
 def calculate_dilution():
     calcs = calculate.Calculations()
+    rootdir = AbsPath()
     volume = request.form['volume']
     solution = request.form['solution']
     final = request.form['final']
+    # densities = app.open_resource(rootdir.main_cwd() + '\\src\\density.csv', 'r')
 
     try:
 
@@ -23,6 +26,11 @@ def calculate_dilution():
     except TypeError:
 
         return render_template("type_error.html")
+
+class AbsPath:
+
+    def main_cwd(self):
+        return os.path.dirname(app.root_path)
 
 
 
