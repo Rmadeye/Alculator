@@ -9,7 +9,7 @@ class Calculations:
 
     def calc_dil(self, volume: float, final: float, solution: float):
         data = []
-        with open('src/density.csv', 'r', encoding='utf-8') as file:
+        with open('src\\density.csv', 'r', encoding='utf-8') as file:
             readCSV = csv.reader(file, delimiter=';')
 
             for row in readCSV:
