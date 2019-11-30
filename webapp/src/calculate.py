@@ -12,7 +12,7 @@ class Calculations:
         print(path.main_cwd())
 
         data = []
-        with open(path.main_cwd() + '\\webapp\\src\\density.csv', 'r', encoding='utf-8') as file:
+        with open(path.main_cwd() + '/webapp/src/density.csv', 'r', encoding='utf-8') as file:
             readCSV = csv.reader(file, delimiter=';')
 
             for row in readCSV:
