@@ -35,20 +35,20 @@ def calculate_dilution():
     solution = request.form['solution']
     final = request.form['final']
 
-    try:
-        check_input(volume, final, solution)
-        if float(solution) > float(final):
-            output = calcs.calc_dil(float(volume), float(final), float(solution))
-            answer = output[0]
-            pure = output[1]
-            return render_template("answer.html", answer = answer, pure = pure)
-        else:
-            return render_template("error.html")
+    #try:
+    check_input(volume, final, solution)
+    if float(solution) > float(final):
+        output = calcs.calc_dil(float(volume), float(final), float(solution))
+        answer = output[0]
+        pure = output[1]
+        return render_template("answer.html", answer = answer, pure = pure)
+    else:
+        return None # render_template("error.html")
 
 
-    except:
+    #except:
 
-        return render_template("error.html")
+     #   return render_template("error.html")
 
 class AbsPath:
 
