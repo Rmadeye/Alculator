@@ -31,7 +31,6 @@ def check_input(volume, final, solution):
 @app.route('/calculate_dilution', methods=["POST"])
 def calculate_dilution():
     calcs = calculate.Calculations()
-    rootdir = AbsPath()
     volume = request.form['volume']
     solution = request.form['solution']
     final = request.form['final']
@@ -55,10 +54,5 @@ class AbsPath:
 
     def main_cwd(self):
         return os.path.dirname(app.root_path)
-
-
-
-if __name__ == "__main__":
-    app.run('127.0.0.1', 5000, debug=True)
 
 

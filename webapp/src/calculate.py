@@ -9,7 +9,7 @@ class Calculations:
 
     def calc_dil(self, volume: float, final: float, solution: float):
         data = []
-        with open('src\\density.csv', 'r', encoding='utf-8') as file:
+        with open('src/density.csv', 'r', encoding='utf-8') as file:
             readCSV = csv.reader(file, delimiter=';')
 
             for row in readCSV:
@@ -24,4 +24,3 @@ class Calculations:
         answer = ((float(volume)*float(solution)*float(initial_density))-(volume*float(final)*float(final_density)))/(final*float(final_density))
         pure = volume*(float(solution)/100)*float(initial_density)
         return str(int(answer)), str(round(pure,2))
-       # return 'Add:',str(round(answer,0)),'mL','Pure alcohol:', str(round(pure,2)), 'g'
