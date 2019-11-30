@@ -1,5 +1,5 @@
 import pandas as pd
-import os, csv
+import os, csv, webapp.app
 
 class Calculations:
 
@@ -8,8 +8,11 @@ class Calculations:
         pass
 
     def calc_dil(self, volume: float, final: float, solution: float):
+        path = webapp.app.AbsPath()
+        print(path.main_cwd())
+
         data = []
-        with open('src\\density.csv', 'r', encoding='utf-8') as file:
+        with open(path.main_cwd() + '\\webapp\\src\\density.csv', 'r', encoding='utf-8') as file:
             readCSV = csv.reader(file, delimiter=';')
 
             for row in readCSV:
